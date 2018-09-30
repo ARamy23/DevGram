@@ -14,4 +14,5 @@ final class FirebaseService
     static let databaseUsersRef = FirebaseService.databaseURL.child("users")
     static let storageRef = Storage.storage().reference()
     static let storageProfileImagesRef = FirebaseService.storageRef.child("profile_images")
+    static let currentUserUID = Auth.auth().currentUser?.uid
 }

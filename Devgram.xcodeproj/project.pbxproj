@@ -9,14 +9,17 @@
 /* Begin PBXBuildFile section */
 		B37FF64D7A8E000BF3AA4556 /* Pods_Devgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 578E2D582CB1AE4B50DD9821 /* Pods_Devgram.framework */; };
 		E2041BAF215D2514003E25C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2041BAE215D2514003E25C0 /* AppDelegate.swift */; };
-		E2041BB1215D2514003E25C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2041BB0215D2514003E25C0 /* ViewController.swift */; };
+		E2041BB1215D2514003E25C0 /* Registeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2041BB0215D2514003E25C0 /* Registeration.swift */; };
 		E2041BB4215D2514003E25C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2041BB2215D2514003E25C0 /* Main.storyboard */; };
 		E2041BB6215D2516003E25C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2041BB5215D2516003E25C0 /* Assets.xcassets */; };
 		E2041BB9215D2516003E25C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2041BB7215D2516003E25C0 /* LaunchScreen.storyboard */; };
+		E207FB0D2160EC2C00B0E426 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E207FB0C2160EC2C00B0E426 /* MainTabBarController.swift */; };
+		E207FB142160F17300B0E426 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E207FB132160F17300B0E426 /* ProfileVC.swift */; };
+		E207FB162161112D00B0E426 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E207FB152161112D00B0E426 /* User.swift */; };
+		E207FB182161171800B0E426 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E207FB172161171800B0E426 /* UserProfileHeader.swift */; };
 		E28F2298215FB182008E739D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E28F2297215FB182008E739D /* GoogleService-Info.plist */; };
 		E28F229B215FC870008E739D /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F229A215FC870008E739D /* Firebase.swift */; };
 		E2A0BF69215EA92B002E0CF4 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A0BF68215EA92B002E0CF4 /* UIColor.swift */; };
-		E2A0BF6B215EB6D6002E0CF4 /* UIView + NSLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A0BF6A215EB6D6002E0CF4 /* UIView + NSLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,15 +27,18 @@
 		7753DCC7601B91F64355B223 /* Pods-Devgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Devgram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Devgram/Pods-Devgram.debug.xcconfig"; sourceTree = "<group>"; };
 		E2041BAB215D2514003E25C0 /* Devgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Devgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2041BAE215D2514003E25C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E2041BB0215D2514003E25C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E2041BB0215D2514003E25C0 /* Registeration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registeration.swift; sourceTree = "<group>"; };
 		E2041BB3215D2514003E25C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2041BB5215D2516003E25C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2041BB8215D2516003E25C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2041BBA215D2516003E25C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E207FB0C2160EC2C00B0E426 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		E207FB132160F17300B0E426 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		E207FB152161112D00B0E426 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E207FB172161171800B0E426 /* UserProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
 		E28F2297215FB182008E739D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E28F229A215FC870008E739D /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		E2A0BF68215EA92B002E0CF4 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		E2A0BF6A215EB6D6002E0CF4 /* UIView + NSLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + NSLayout.swift"; sourceTree = "<group>"; };
 		F4938845B0C1E57F20FAF71B /* Pods-Devgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Devgram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Devgram/Pods-Devgram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,23 +83,59 @@
 		E2041BAD215D2514003E25C0 /* Devgram */ = {
 			isa = PBXGroup;
 			children = (
+				E207FB112160F00500B0E426 /* AppComponents */,
 				E28F2299215FC858008E739D /* Shared */,
-				E2041BAE215D2514003E25C0 /* AppDelegate.swift */,
-				E2041BB0215D2514003E25C0 /* ViewController.swift */,
-				E2041BB2215D2514003E25C0 /* Main.storyboard */,
-				E2A0BF67215EA919002E0CF4 /* Extensions */,
-				E2041BB5215D2516003E25C0 /* Assets.xcassets */,
-				E2041BB7215D2516003E25C0 /* LaunchScreen.storyboard */,
+				E207FB0E2160EC7200B0E426 /* Supporting Files */,
 				E28F2297215FB182008E739D /* GoogleService-Info.plist */,
 				E2041BBA215D2516003E25C0 /* Info.plist */,
 			);
 			path = Devgram;
 			sourceTree = "<group>";
 		};
+		E207FB0E2160EC7200B0E426 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E2041BAE215D2514003E25C0 /* AppDelegate.swift */,
+				E2041BB2215D2514003E25C0 /* Main.storyboard */,
+				E2041BB5215D2516003E25C0 /* Assets.xcassets */,
+				E2041BB7215D2516003E25C0 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E207FB0F2160ECC800B0E426 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				E2041BB0215D2514003E25C0 /* Registeration.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		E207FB112160F00500B0E426 /* AppComponents */ = {
+			isa = PBXGroup;
+			children = (
+				E207FB0C2160EC2C00B0E426 /* MainTabBarController.swift */,
+				E207FB0F2160ECC800B0E426 /* Authentication */,
+				E207FB122160F0D800B0E426 /* UserProfile */,
+			);
+			path = AppComponents;
+			sourceTree = "<group>";
+		};
+		E207FB122160F0D800B0E426 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				E207FB132160F17300B0E426 /* ProfileVC.swift */,
+				E207FB172161171800B0E426 /* UserProfileHeader.swift */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
 		E28F2299215FC858008E739D /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E2A0BF67215EA919002E0CF4 /* Extensions */,
 				E28F229A215FC870008E739D /* Firebase.swift */,
+				E207FB152161112D00B0E426 /* User.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -102,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				E2A0BF68215EA92B002E0CF4 /* UIColor.swift */,
-				E2A0BF6A215EB6D6002E0CF4 /* UIView + NSLayout.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -194,20 +235,22 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Devgram/Pods-Devgram-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -239,11 +282,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E207FB142160F17300B0E426 /* ProfileVC.swift in Sources */,
 				E28F229B215FC870008E739D /* Firebase.swift in Sources */,
-				E2041BB1215D2514003E25C0 /* ViewController.swift in Sources */,
-				E2A0BF6B215EB6D6002E0CF4 /* UIView + NSLayout.swift in Sources */,
+				E2041BB1215D2514003E25C0 /* Registeration.swift in Sources */,
+				E207FB182161171800B0E426 /* UserProfileHeader.swift in Sources */,
+				E207FB0D2160EC2C00B0E426 /* MainTabBarController.swift in Sources */,
 				E2A0BF69215EA92B002E0CF4 /* UIColor.swift in Sources */,
 				E2041BAF215D2514003E25C0 /* AppDelegate.swift in Sources */,
+				E207FB162161112D00B0E426 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

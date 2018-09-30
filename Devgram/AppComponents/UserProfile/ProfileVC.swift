@@ -9,7 +9,6 @@
 import UIKit
 
 class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-
     //MARK:- View Controller Methods
     
     override func viewDidLoad() {
@@ -27,7 +26,7 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
     
     fileprivate func setupUI()
     {
-        collectionView.register(supplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withClass: UICollectionReusableView.self)
+        collectionView.register(supplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withClass: UserProfileHeader.self)
         collectionView.backgroundColor = .white
         navigationItem.title = "My Profile"
     }
@@ -43,6 +42,8 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
             {
                 let user = User(userDictionary)
                 self.navigationItem.title = user.username
+                FirebaseService.currentUser = user
+                self.collectionView.reloadData()
             }
         }
     }
@@ -50,9 +51,8 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
     //MARK:- UICollectionView Methods
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withClass: UICollectionReusableView.self, for: indexPath)
-        
-        header.backgroundColor = .green
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withClass: UserProfileHeader.self, for: indexPath)
+        header.user = FirebaseService.currentUser
         return header
     }
     

@@ -19,8 +19,7 @@ class RegisterVC: UIViewController {
     let pickPhotoButton: UIButton =
     {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "plus_photo"), for: .normal)
-        button.tintColor = .appPrimaryColor
+        button.setImage(#imageLiteral(resourceName: "user-placeholder"), for: .normal)
         button.addTarget(self, action: #selector(handlePickingPhoto), for: .touchUpInside)
         button.layer.masksToBounds = true
         button.layer.borderColor = UIColor.clear.cgColor

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import SVProgressHUD
 
 class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     //MARK:- View Controller Methods
@@ -24,12 +26,26 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
     
     //MARK:- Setup Methods
     
-    fileprivate func setupUI()
-    {
+    fileprivate func setupCollectionView() {
         collectionView.register(supplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withClass: UserProfileHeader.self)
         collectionView.register(cellWithClass: UICollectionViewCell.self)
         collectionView.backgroundColor = .white
+    }
+    
+    fileprivate func setupGearButton()
+    {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "gear"), style: .plain, target: self, action: #selector(showSettingsActionSheet))
+    }
+    
+    fileprivate func setupNavBar() {
         navigationItem.title = "My Profile"
+        setupGearButton()
+    }
+    
+    fileprivate func setupUI()
+    {
+        setupCollectionView()
+        setupNavBar()
     }
     
     //MARK:- Networking Methods
@@ -47,6 +63,28 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
                 self.collectionView.reloadData()
             }
         }
+    }
+    
+    //MARK:- Logic
+    
+    @objc fileprivate func showSettingsActionSheet()
+    {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
+            do
+            {
+                try Auth.auth().signOut()
+            }
+            catch let err
+            {
+                print(err)
+                SVProgressHUD.showError(withStatus: err.localizedDescription)
+            }
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     //MARK:- UICollectionView Methods

@@ -70,7 +70,7 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
     @objc fileprivate func showSettingsActionSheet()
     {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
+        alertController.addAction(UIAlertAction(title: "Logout", style: .destructive, handler: { (action) in
             do
             {
                 try Auth.auth().signOut()

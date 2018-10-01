@@ -138,12 +138,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/AppComponents/UserProfile/ProfileVC.swift"
-            timestampString = "560009791.3144391"
+            timestampString = "560048466.156868"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
             endingLineNumber = "42"
-            landmarkName = "getCurrentUser()"
+            landmarkName = "setupNavBar()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -154,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/Supporting Files/AppDelegate.swift"
-            timestampString = "560009791.314849"
+            timestampString = "560023007.647372"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "24"
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/AppComponents/Authentication/Registeration.swift"
-            timestampString = "560009791.314937"
+            timestampString = "560029365.879236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
             landmarkName = "store(_:onCompletion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/AppComponents/Authentication/Registeration.swift"
-            timestampString = "560009791.3149869"
+            timestampString = "560029365.879283"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
             landmarkName = "authenticateCurrentUser()"
             landmarkType = "7">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/AppComponents/Authentication/Registeration.swift"
-            timestampString = "560009791.315029"
+            timestampString = "560029365.879324"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
             landmarkName = "registerCurrentUser(with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -218,7 +218,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/Supporting Files/AppDelegate.swift"
-            timestampString = "560009881.539331"
+            timestampString = "560023007.647597"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"

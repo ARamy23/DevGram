@@ -14,8 +14,14 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispatchQueue.main.async { self.checkIfUserIsLoggedIn() }
         setupTabBarUI()
         setupVCs()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DispatchQueue.main.async { self.checkIfUserIsLoggedIn() }
     }
     
     //MARK:- Setup Methods
@@ -35,7 +41,7 @@ class MainTabBarController: UITabBarController {
     
     //MARK:- Helper Methods
     
-    fileprivate func generateNavCon(viewController: UIViewController,name: String, image: UIImage, selectedImage: UIImage?) -> UIViewController
+    fileprivate func generateNavCon(viewController: UIViewController,name: String? = nil, image: UIImage? = nil, selectedImage: UIImage? = nil) -> UIViewController
     {
         let navVC = UINavigationController(rootViewController: viewController)
         navVC.navigationBar.topItem?.title = title
@@ -44,5 +50,15 @@ class MainTabBarController: UITabBarController {
         navVC.tabBarItem.selectedImage = selectedImage ?? image
         navVC.navigationBar.tintColor = #colorLiteral(red: 0.4235294118, green: 0.4274509804, blue: 0.7921568627, alpha: 1)
         return navVC
+    }
+    
+    //MARK:- Logic
+    
+    fileprivate func checkIfUserIsLoggedIn()
+    {
+        if FirebaseService.currentUserUID == nil
+        {
+            present(generateNavCon(viewController: LoginVC()), animated: true, completion: nil)
+        }
     }
 }

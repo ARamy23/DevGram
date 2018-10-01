@@ -41,7 +41,7 @@ class MainTabBarController: UITabBarController {
     
     //MARK:- Helper Methods
     
-    fileprivate func generateNavCon(viewController: UIViewController,name: String, image: UIImage, selectedImage: UIImage?) -> UIViewController
+    fileprivate func generateNavCon(viewController: UIViewController,name: String? = nil, image: UIImage? = nil, selectedImage: UIImage? = nil) -> UIViewController
     {
         let navVC = UINavigationController(rootViewController: viewController)
         navVC.navigationBar.topItem?.title = title
@@ -58,7 +58,7 @@ class MainTabBarController: UITabBarController {
     {
         if FirebaseService.currentUserUID == nil
         {
-            present(LoginVC(), animated: true, completion: nil)
+            present(generateNavCon(viewController: LoginVC()), animated: true, completion: nil)
         }
     }
 }

@@ -15,7 +15,7 @@ class LoginVC: UIViewController {
         let btn = UIButton(type: .system)
         let attributedText = NSMutableAttributedString(string: "Don't have an account? ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14)])
         attributedText.append(NSAttributedString(string: "Signup", attributes: [NSAttributedString.Key.foregroundColor : UIColor.appPrimaryColor]))
-        attributedText.append(NSAttributedString(string: "."))
+        attributedText.append(NSAttributedString(string: "!"))
         btn.setAttributedTitle(attributedText, for: .normal)
         btn.addTarget(self, action: #selector(switchToRegistering), for: .touchUpInside)
         return btn
@@ -49,6 +49,6 @@ class LoginVC: UIViewController {
     
     @objc fileprivate func switchToRegistering()
     {
-          
+        navigationController?.pushViewController(RegisterVC())
     }
 }

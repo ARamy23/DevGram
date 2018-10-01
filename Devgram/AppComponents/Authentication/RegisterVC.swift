@@ -95,6 +95,17 @@ class RegisterVC: UIViewController {
         return button
     }()
     
+    let loginButton: UIButton =
+    {
+        let btn = UIButton(type: .system)
+        let attributedText = NSMutableAttributedString(string: "Already Have an Account? ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14)])
+        attributedText.append(NSAttributedString(string: "Login", attributes: [NSAttributedString.Key.foregroundColor : UIColor.appPrimaryColor]))
+        attributedText.append(NSAttributedString(string: "!"))
+        btn.setAttributedTitle(attributedText, for: .normal)
+        btn.addTarget(self, action: #selector(switchToLoggingIn), for: .touchUpInside)
+        return btn
+    }()
+    
     //MARK:- View Controller Methods
     
     override func viewDidLoad() {
@@ -111,6 +122,7 @@ class RegisterVC: UIViewController {
         setupPhotoButton()
         setupInputStackView()
         setupInputViews()
+        setupLoginButton()
     }
     
     fileprivate func setupView()
@@ -150,7 +162,22 @@ class RegisterVC: UIViewController {
         inputStackView.addArrangedSubview(signupButton)
     }
     
+    
+    fileprivate func setupLoginButton()
+    {
+        view.addSubview(loginButton)
+        loginButton.snp.makeConstraints { (maker) in
+            maker.left.bottom.right.equalTo(view)
+            maker.height.equalTo(50)
+        }
+    }
+    
     //MARK:- Logic
+    
+    @objc fileprivate func switchToLoggingIn()
+    {
+        navigationController?.pushViewController(LoginVC())
+    }
     
     @objc fileprivate func handlePickingPhoto()
     {

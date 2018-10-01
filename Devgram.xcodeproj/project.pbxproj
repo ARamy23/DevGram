@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B37FF64D7A8E000BF3AA4556 /* Pods_Devgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 578E2D582CB1AE4B50DD9821 /* Pods_Devgram.framework */; };
+		E2027D2D216163FC0035A788 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2027D2C216163FC0035A788 /* LoginVC.swift */; };
 		E2041BAF215D2514003E25C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2041BAE215D2514003E25C0 /* AppDelegate.swift */; };
-		E2041BB1215D2514003E25C0 /* Registeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2041BB0215D2514003E25C0 /* Registeration.swift */; };
+		E2041BB1215D2514003E25C0 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2041BB0215D2514003E25C0 /* RegisterVC.swift */; };
 		E2041BB4215D2514003E25C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2041BB2215D2514003E25C0 /* Main.storyboard */; };
 		E2041BB6215D2516003E25C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2041BB5215D2516003E25C0 /* Assets.xcassets */; };
 		E2041BB9215D2516003E25C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2041BB7215D2516003E25C0 /* LaunchScreen.storyboard */; };
@@ -25,9 +26,10 @@
 /* Begin PBXFileReference section */
 		578E2D582CB1AE4B50DD9821 /* Pods_Devgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Devgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7753DCC7601B91F64355B223 /* Pods-Devgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Devgram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Devgram/Pods-Devgram.debug.xcconfig"; sourceTree = "<group>"; };
+		E2027D2C216163FC0035A788 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		E2041BAB215D2514003E25C0 /* Devgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Devgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2041BAE215D2514003E25C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E2041BB0215D2514003E25C0 /* Registeration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registeration.swift; sourceTree = "<group>"; };
+		E2041BB0215D2514003E25C0 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		E2041BB3215D2514003E25C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2041BB5215D2516003E25C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2041BB8215D2516003E25C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -106,7 +108,8 @@
 		E207FB0F2160ECC800B0E426 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				E2041BB0215D2514003E25C0 /* Registeration.swift */,
+				E2041BB0215D2514003E25C0 /* RegisterVC.swift */,
+				E2027D2C216163FC0035A788 /* LoginVC.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -284,9 +287,10 @@
 			files = (
 				E207FB142160F17300B0E426 /* ProfileVC.swift in Sources */,
 				E28F229B215FC870008E739D /* Firebase.swift in Sources */,
-				E2041BB1215D2514003E25C0 /* Registeration.swift in Sources */,
+				E2041BB1215D2514003E25C0 /* RegisterVC.swift in Sources */,
 				E207FB182161171800B0E426 /* UserProfileHeader.swift in Sources */,
 				E207FB0D2160EC2C00B0E426 /* MainTabBarController.swift in Sources */,
+				E2027D2D216163FC0035A788 /* LoginVC.swift in Sources */,
 				E2A0BF69215EA92B002E0CF4 /* UIColor.swift in Sources */,
 				E2041BAF215D2514003E25C0 /* AppDelegate.swift in Sources */,
 				E207FB162161112D00B0E426 /* User.swift in Sources */,

@@ -20,7 +20,8 @@
 		E207FB182161171800B0E426 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E207FB172161171800B0E426 /* UserProfileHeader.swift */; };
 		E28F2298215FB182008E739D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E28F2297215FB182008E739D /* GoogleService-Info.plist */; };
 		E28F229B215FC870008E739D /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F229A215FC870008E739D /* Firebase.swift */; };
-		E2A0BF69215EA92B002E0CF4 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A0BF68215EA92B002E0CF4 /* UIColor.swift */; };
+		E2A0BF69215EA92B002E0CF4 /* UIColor + AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A0BF68215EA92B002E0CF4 /* UIColor + AppColors.swift */; };
+		E2BB336D21624CAD00DB5D72 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BB336C21624CAD00DB5D72 /* UIApplication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +41,8 @@
 		E207FB172161171800B0E426 /* UserProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
 		E28F2297215FB182008E739D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E28F229A215FC870008E739D /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
-		E2A0BF68215EA92B002E0CF4 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		E2A0BF68215EA92B002E0CF4 /* UIColor + AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + AppColors.swift"; sourceTree = "<group>"; };
+		E2BB336C21624CAD00DB5D72 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		F4938845B0C1E57F20FAF71B /* Pods-Devgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Devgram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Devgram/Pods-Devgram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,7 +148,8 @@
 		E2A0BF67215EA919002E0CF4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E2A0BF68215EA92B002E0CF4 /* UIColor.swift */,
+				E2BB336C21624CAD00DB5D72 /* UIApplication.swift */,
+				E2A0BF68215EA92B002E0CF4 /* UIColor + AppColors.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -291,8 +294,9 @@
 				E207FB182161171800B0E426 /* UserProfileHeader.swift in Sources */,
 				E207FB0D2160EC2C00B0E426 /* MainTabBarController.swift in Sources */,
 				E2027D2D216163FC0035A788 /* LoginVC.swift in Sources */,
-				E2A0BF69215EA92B002E0CF4 /* UIColor.swift in Sources */,
+				E2A0BF69215EA92B002E0CF4 /* UIColor + AppColors.swift in Sources */,
 				E2041BAF215D2514003E25C0 /* AppDelegate.swift in Sources */,
+				E2BB336D21624CAD00DB5D72 /* UIApplication.swift in Sources */,
 				E207FB162161112D00B0E426 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,6 +6,7 @@
 //  Copyright © 2018 ScaRiLiX. All rights reserved.
 //
 
+import FirebaseAuth
 import UIKit
 
 class MainTabBarController: UITabBarController {
@@ -15,8 +16,7 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async { self.checkIfUserIsLoggedIn() }
-        setupTabBarUI()
-        setupVCs()
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +39,12 @@ class MainTabBarController: UITabBarController {
         ]
     }
     
+    func setupUI()
+    {
+        setupTabBarUI()
+        setupVCs()
+    }
+    
     //MARK:- Helper Methods
     
     fileprivate func generateNavCon(viewController: UIViewController,name: String? = nil, image: UIImage? = nil, selectedImage: UIImage? = nil) -> UIViewController
@@ -54,9 +60,9 @@ class MainTabBarController: UITabBarController {
     
     //MARK:- Logic
     
-    fileprivate func checkIfUserIsLoggedIn()
+    func checkIfUserIsLoggedIn()
     {
-        if FirebaseService.currentUserUID == nil
+        if Auth.auth().currentUser == nil
         {
             present(generateNavCon(viewController: LoginVC()), animated: true, completion: nil)
         }

@@ -19,7 +19,7 @@ class RegisterVC: UIViewController {
     let pickPhotoButton: UIButton =
     {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "user-placeholder"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "plus_photo").original, for: .normal)
         button.addTarget(self, action: #selector(handlePickingPhoto), for: .touchUpInside)
         button.layer.masksToBounds = true
         button.layer.borderColor = UIColor.clear.cgColor
@@ -43,7 +43,7 @@ class RegisterVC: UIViewController {
         tf.textAlignment = .center
         tf.textColor = .appSecondaryColor
         tf.attributedPlaceholder = NSAttributedString(string: "JohnDoe@iDevAR.com", attributes: [NSAttributedString.Key.foregroundColor : UIColor.appThirdColor])
-        tf.borderStyle = .roundedRect
+        tf.borderStyle = .none
         tf.backgroundColor = .clear
         tf.layer.borderColor = UIColor.appThirdColor.cgColor
         tf.layer.borderWidth = 4
@@ -58,7 +58,7 @@ class RegisterVC: UIViewController {
         tf.textAlignment = .center
         tf.textColor = .appSecondaryColor
         tf.attributedPlaceholder = NSAttributedString(string: "JohnDoe23", attributes: [NSAttributedString.Key.foregroundColor : UIColor.appThirdColor])
-        tf.borderStyle = .roundedRect
+        tf.borderStyle = .none
         tf.backgroundColor = .clear
         tf.layer.borderColor = UIColor.appThirdColor.cgColor
         tf.layer.borderWidth = 4
@@ -73,7 +73,7 @@ class RegisterVC: UIViewController {
         tf.textAlignment = .center
         tf.textColor = .appSecondaryColor
         tf.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.appThirdColor])
-        tf.borderStyle = .roundedRect
+        tf.borderStyle = .none
         tf.backgroundColor = .clear
         tf.layer.borderColor = UIColor.appThirdColor.cgColor
         tf.layer.borderWidth = 4
@@ -88,18 +88,19 @@ class RegisterVC: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Sign Up", for: .normal)
         button.backgroundColor = .appThirdColor
-        button.setTitleColor(.appSecondaryColor, for: .normal)
+        button.setTitleColor(.appForthColor, for: .normal)
         button.layer.cornerRadius = 16
+        button.alpha = 0.4
         button.addTarget(self, action: #selector(handleSignup), for: .touchUpInside)
         button.isEnabled = false
         return button
     }()
     
-    let loginButton: UIButton =
+    let alreadyHasAnAccountButton: UIButton =
     {
-        let btn = UIButton(type: .system)
+        let btn = UIButton(type: .custom)
         let attributedText = NSMutableAttributedString(string: "Already Have an Account? ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14)])
-        attributedText.append(NSAttributedString(string: "Login", attributes: [NSAttributedString.Key.foregroundColor : UIColor.appPrimaryColor]))
+        attributedText.append(NSAttributedString(string: "Login", attributes: [NSAttributedString.Key.foregroundColor : UIColor.appPrimaryColor, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16)]))
         attributedText.append(NSAttributedString(string: "!"))
         btn.setAttributedTitle(attributedText, for: .normal)
         btn.addTarget(self, action: #selector(switchToLoggingIn), for: .touchUpInside)
@@ -122,7 +123,7 @@ class RegisterVC: UIViewController {
         setupPhotoButton()
         setupInputStackView()
         setupInputViews()
-        setupLoginButton()
+        setupAlreadyHasAnAccountButton()
     }
     
     fileprivate func setupView()
@@ -163,10 +164,10 @@ class RegisterVC: UIViewController {
     }
     
     
-    fileprivate func setupLoginButton()
+    fileprivate func setupAlreadyHasAnAccountButton()
     {
-        view.addSubview(loginButton)
-        loginButton.snp.makeConstraints { (maker) in
+        view.addSubview(alreadyHasAnAccountButton)
+        alreadyHasAnAccountButton.snp.makeConstraints { (maker) in
             maker.left.bottom.right.equalTo(view)
             maker.height.equalTo(50)
         }
@@ -197,11 +198,13 @@ class RegisterVC: UIViewController {
             {
                 self.signupButton.backgroundColor = .appPrimaryColor
                 self.signupButton.isEnabled = true
+                self.signupButton.alpha = 1
             }
             else
             {
                 self.signupButton.backgroundColor = .appThirdColor
                 self.signupButton.isEnabled = false
+                self.signupButton.alpha = 0.4
             }
         }
         
@@ -307,7 +310,9 @@ class RegisterVC: UIViewController {
             }
             
             SVProgressHUD.showSuccess(withStatus: "Successfully Registered!")
-            self.present(MainTabBarController(), animated: true, completion: nil)
+            
+            UIApplication.mainTabBarController()?.setupUI()
+            self.dismiss(animated: true, completion: nil)
         }
     }
     

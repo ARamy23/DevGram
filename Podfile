@@ -9,6 +9,7 @@ target 'Devgram' do
 	pod 'SwifterSwift'
 	pod 'SVProgressHUD'
 	pod 'SnapKit'
+	pod 'Kingfisher'
 	pod 'Firebase/Auth'
 	pod 'Firebase/Database'
 	pod 'Firebase/Storage', '~> 4.0'

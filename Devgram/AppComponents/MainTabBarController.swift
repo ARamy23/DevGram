@@ -89,6 +89,13 @@ extension MainTabBarController: UITabBarControllerDelegate
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         let index = viewControllers?.index(of: viewController)
         
-        return !(index == 2)
+        if index == 2
+        {
+            let photoSelectorVC = generateNavCon(viewController: PhotoSelectorVC(collectionViewLayout: UICollectionViewFlowLayout()))
+            present(photoSelectorVC, animated: true, completion: nil)
+            return false
+        }
+        
+        return true
     }
 }

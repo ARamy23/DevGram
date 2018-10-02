@@ -21,7 +21,13 @@
 		E28F2298215FB182008E739D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E28F2297215FB182008E739D /* GoogleService-Info.plist */; };
 		E28F229B215FC870008E739D /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F229A215FC870008E739D /* Firebase.swift */; };
 		E2A0BF69215EA92B002E0CF4 /* UIColor + AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A0BF68215EA92B002E0CF4 /* UIColor + AppColors.swift */; };
+		E2A17FA72163A631008AFEB3 /* PhotoSelectorHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A17FA62163A631008AFEB3 /* PhotoSelectorHeader.swift */; };
+		E2A17FAA2163AED8008AFEB3 /* SharePhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A17FA92163AED8008AFEB3 /* SharePhotoVC.swift */; };
+		E2A17FAC2163C885008AFEB3 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A17FAB2163C885008AFEB3 /* Post.swift */; };
+		E2A17FAF2163CC5A008AFEB3 /* ProfilePostImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A17FAE2163CC5A008AFEB3 /* ProfilePostImageCell.swift */; };
 		E2BB336D21624CAD00DB5D72 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BB336C21624CAD00DB5D72 /* UIApplication.swift */; };
+		E2BB337021625D0C00DB5D72 /* PhotoSelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BB336F21625D0C00DB5D72 /* PhotoSelectorVC.swift */; };
+		E2BB33732162668D00DB5D72 /* PhotoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BB33722162668C00DB5D72 /* PhotoCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +48,13 @@
 		E28F2297215FB182008E739D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E28F229A215FC870008E739D /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		E2A0BF68215EA92B002E0CF4 /* UIColor + AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + AppColors.swift"; sourceTree = "<group>"; };
+		E2A17FA62163A631008AFEB3 /* PhotoSelectorHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorHeader.swift; sourceTree = "<group>"; };
+		E2A17FA92163AED8008AFEB3 /* SharePhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePhotoVC.swift; sourceTree = "<group>"; };
+		E2A17FAB2163C885008AFEB3 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		E2A17FAE2163CC5A008AFEB3 /* ProfilePostImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePostImageCell.swift; sourceTree = "<group>"; };
 		E2BB336C21624CAD00DB5D72 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		E2BB336F21625D0C00DB5D72 /* PhotoSelectorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorVC.swift; sourceTree = "<group>"; };
+		E2BB33722162668C00DB5D72 /* PhotoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionCell.swift; sourceTree = "<group>"; };
 		F4938845B0C1E57F20FAF71B /* Pods-Devgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Devgram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Devgram/Pods-Devgram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +134,7 @@
 				E207FB0C2160EC2C00B0E426 /* MainTabBarController.swift */,
 				E207FB0F2160ECC800B0E426 /* Authentication */,
 				E207FB122160F0D800B0E426 /* UserProfile */,
+				E2BB336E21625CDF00DB5D72 /* Photo Selector */,
 			);
 			path = AppComponents;
 			sourceTree = "<group>";
@@ -130,7 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				E207FB132160F17300B0E426 /* ProfileVC.swift */,
-				E207FB172161171800B0E426 /* UserProfileHeader.swift */,
+				E2A17FAD2163CC0F008AFEB3 /* Profile Cells */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -141,6 +154,7 @@
 				E2A0BF67215EA919002E0CF4 /* Extensions */,
 				E28F229A215FC870008E739D /* Firebase.swift */,
 				E207FB152161112D00B0E426 /* User.swift */,
+				E2A17FAB2163C885008AFEB3 /* Post.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -152,6 +166,34 @@
 				E2A0BF68215EA92B002E0CF4 /* UIColor + AppColors.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E2A17FAD2163CC0F008AFEB3 /* Profile Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E207FB172161171800B0E426 /* UserProfileHeader.swift */,
+				E2A17FAE2163CC5A008AFEB3 /* ProfilePostImageCell.swift */,
+			);
+			path = "Profile Cells";
+			sourceTree = "<group>";
+		};
+		E2BB336E21625CDF00DB5D72 /* Photo Selector */ = {
+			isa = PBXGroup;
+			children = (
+				E2BB336F21625D0C00DB5D72 /* PhotoSelectorVC.swift */,
+				E2BB33712162666E00DB5D72 /* Photo Selector Cells */,
+				E2A17FA92163AED8008AFEB3 /* SharePhotoVC.swift */,
+			);
+			path = "Photo Selector";
+			sourceTree = "<group>";
+		};
+		E2BB33712162666E00DB5D72 /* Photo Selector Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E2BB33722162668C00DB5D72 /* PhotoCollectionCell.swift */,
+				E2A17FA62163A631008AFEB3 /* PhotoSelectorHeader.swift */,
+			);
+			path = "Photo Selector Cells";
 			sourceTree = "<group>";
 		};
 		FADD7424D2A5E211BAAC11D5 /* Pods */ = {
@@ -242,6 +284,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Devgram/Pods-Devgram-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
@@ -252,6 +295,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
@@ -294,10 +338,16 @@
 				E207FB182161171800B0E426 /* UserProfileHeader.swift in Sources */,
 				E207FB0D2160EC2C00B0E426 /* MainTabBarController.swift in Sources */,
 				E2027D2D216163FC0035A788 /* LoginVC.swift in Sources */,
+				E2BB33732162668D00DB5D72 /* PhotoCollectionCell.swift in Sources */,
 				E2A0BF69215EA92B002E0CF4 /* UIColor + AppColors.swift in Sources */,
 				E2041BAF215D2514003E25C0 /* AppDelegate.swift in Sources */,
+				E2A17FAC2163C885008AFEB3 /* Post.swift in Sources */,
+				E2A17FAA2163AED8008AFEB3 /* SharePhotoVC.swift in Sources */,
+				E2A17FA72163A631008AFEB3 /* PhotoSelectorHeader.swift in Sources */,
 				E2BB336D21624CAD00DB5D72 /* UIApplication.swift in Sources */,
 				E207FB162161112D00B0E426 /* User.swift in Sources */,
+				E2BB337021625D0C00DB5D72 /* PhotoSelectorVC.swift in Sources */,
+				E2A17FAF2163CC5A008AFEB3 /* ProfilePostImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

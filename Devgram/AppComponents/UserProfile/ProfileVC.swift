@@ -11,6 +11,10 @@ import FirebaseAuth
 import SVProgressHUD
 
 class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    //MARK:- Datasource
+    
+    var posts = [Post]()
+    
     //MARK:- View Controller Methods
     
     override func viewDidLoad() {
@@ -22,13 +26,14 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getCurrentUser()
+        fetchPosts()
     }
     
     //MARK:- Setup Methods
     
     fileprivate func setupCollectionView() {
         collectionView.register(supplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withClass: UserProfileHeader.self)
-        collectionView.register(cellWithClass: UICollectionViewCell.self)
+        collectionView.register(cellWithClass: ProfilePostImageCell.self)
         collectionView.backgroundColor = .white
     }
     
@@ -65,6 +70,26 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
         }
     }
     
+    fileprivate func fetchPosts()
+    {
+        guard let uid = FirebaseService.currentUserUID else { return }
+        FirebaseService.databasePostsRef.child(uid).observe(.value, with: { (snapshot) in
+            guard let postsDictionary = snapshot.value as? [String: Any] else { return }
+            var posts = [Post]()
+            postsDictionary.forEach({ (_, value) in
+                guard let postDictionary = value as? [String: Any] else { return }
+                
+                let post = Post(postDictionary)
+                posts.append(post)
+            })
+            self.posts = posts
+            self.collectionView.reloadData()
+        }) { (err) in
+            print(err)
+            SVProgressHUD.showError(withStatus: err.localizedDescription)
+        }
+    }
+    
     //MARK:- Logic
     
     @objc fileprivate func showSettingsActionSheet()
@@ -93,6 +118,7 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withClass: UserProfileHeader.self, for: indexPath)
         header.user = FirebaseService.currentUser
+        header.postsCount = posts.count
         return header
     }
     
@@ -101,12 +127,13 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return posts.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withClass: UICollectionViewCell.self, for: indexPath)
-        cell.backgroundColor = .appPrimaryColor
+        let cell = collectionView.dequeueReusableCell(withClass: ProfilePostImageCell.self, for: indexPath)
+        let post = posts[indexPath.item]
+        cell.post = post
         return cell
     }
     

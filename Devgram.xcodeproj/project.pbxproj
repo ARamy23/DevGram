@@ -25,6 +25,8 @@
 		E2A17FAA2163AED8008AFEB3 /* SharePhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A17FA92163AED8008AFEB3 /* SharePhotoVC.swift */; };
 		E2A17FAC2163C885008AFEB3 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A17FAB2163C885008AFEB3 /* Post.swift */; };
 		E2A17FAF2163CC5A008AFEB3 /* ProfilePostImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A17FAE2163CC5A008AFEB3 /* ProfilePostImageCell.swift */; };
+		E2A17FB22163DB24008AFEB3 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A17FB12163DB24008AFEB3 /* HomeVC.swift */; };
+		E2A17FB52163DCB6008AFEB3 /* HomePostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A17FB42163DCB6008AFEB3 /* HomePostCell.swift */; };
 		E2BB336D21624CAD00DB5D72 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BB336C21624CAD00DB5D72 /* UIApplication.swift */; };
 		E2BB337021625D0C00DB5D72 /* PhotoSelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BB336F21625D0C00DB5D72 /* PhotoSelectorVC.swift */; };
 		E2BB33732162668D00DB5D72 /* PhotoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BB33722162668C00DB5D72 /* PhotoCollectionCell.swift */; };
@@ -52,6 +54,8 @@
 		E2A17FA92163AED8008AFEB3 /* SharePhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePhotoVC.swift; sourceTree = "<group>"; };
 		E2A17FAB2163C885008AFEB3 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		E2A17FAE2163CC5A008AFEB3 /* ProfilePostImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePostImageCell.swift; sourceTree = "<group>"; };
+		E2A17FB12163DB24008AFEB3 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		E2A17FB42163DCB6008AFEB3 /* HomePostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostCell.swift; sourceTree = "<group>"; };
 		E2BB336C21624CAD00DB5D72 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		E2BB336F21625D0C00DB5D72 /* PhotoSelectorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorVC.swift; sourceTree = "<group>"; };
 		E2BB33722162668C00DB5D72 /* PhotoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionCell.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 				E207FB0F2160ECC800B0E426 /* Authentication */,
 				E207FB122160F0D800B0E426 /* UserProfile */,
 				E2BB336E21625CDF00DB5D72 /* Photo Selector */,
+				E2A17FB02163DAFD008AFEB3 /* Home Feed */,
 			);
 			path = AppComponents;
 			sourceTree = "<group>";
@@ -175,6 +180,23 @@
 				E2A17FAE2163CC5A008AFEB3 /* ProfilePostImageCell.swift */,
 			);
 			path = "Profile Cells";
+			sourceTree = "<group>";
+		};
+		E2A17FB02163DAFD008AFEB3 /* Home Feed */ = {
+			isa = PBXGroup;
+			children = (
+				E2A17FB12163DB24008AFEB3 /* HomeVC.swift */,
+				E2A17FB32163DC92008AFEB3 /* Home Feed Cells */,
+			);
+			path = "Home Feed";
+			sourceTree = "<group>";
+		};
+		E2A17FB32163DC92008AFEB3 /* Home Feed Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E2A17FB42163DCB6008AFEB3 /* HomePostCell.swift */,
+			);
+			path = "Home Feed Cells";
 			sourceTree = "<group>";
 		};
 		E2BB336E21625CDF00DB5D72 /* Photo Selector */ = {
@@ -334,9 +356,11 @@
 			files = (
 				E207FB142160F17300B0E426 /* ProfileVC.swift in Sources */,
 				E28F229B215FC870008E739D /* Firebase.swift in Sources */,
+				E2A17FB52163DCB6008AFEB3 /* HomePostCell.swift in Sources */,
 				E2041BB1215D2514003E25C0 /* RegisterVC.swift in Sources */,
 				E207FB182161171800B0E426 /* UserProfileHeader.swift in Sources */,
 				E207FB0D2160EC2C00B0E426 /* MainTabBarController.swift in Sources */,
+				E2A17FB22163DB24008AFEB3 /* HomeVC.swift in Sources */,
 				E2027D2D216163FC0035A788 /* LoginVC.swift in Sources */,
 				E2BB33732162668D00DB5D72 /* PhotoCollectionCell.swift in Sources */,
 				E2A0BF69215EA92B002E0CF4 /* UIColor + AppColors.swift in Sources */,

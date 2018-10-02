@@ -15,6 +15,17 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
     
     var posts = [Post]()
     
+    //MARK:- Instance Vars
+    
+    var user: User?
+    {
+        didSet
+        {
+            self.navigationItem.title = user?.username
+            self.collectionView.reloadData()
+        }
+    }
+    
     //MARK:- View Controller Methods
     
     override func viewDidLoad() {
@@ -25,7 +36,7 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getCurrentUser()
+        FirebaseService.getCurrentUser { self.user = $0 }
         fetchPosts()
     }
     
@@ -55,21 +66,6 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
     
     //MARK:- Networking Methods
     
-    fileprivate func getCurrentUser()
-    {
-        guard let uid = FirebaseService.currentUserUID else { return }
-        FirebaseService.databaseUsersRef.child(uid).observeSingleEvent(of: .value) { (snapshot) in
-            print(snapshot.value)
-            if let userDictionary = snapshot.value as? [String: Any]
-            {
-                let user = User(userDictionary)
-                self.navigationItem.title = user.username
-                FirebaseService.currentUser = user
-                self.collectionView.reloadData()
-            }
-        }
-    }
-    
     fileprivate func fetchPosts()
     {
         guard let uid = FirebaseService.currentUserUID else { return }
@@ -79,8 +75,10 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
             postsDictionary.forEach({ (_, value) in
                 guard let postDictionary = value as? [String: Any] else { return }
                 
-                let post = Post(postDictionary)
-                posts.append(post)
+                guard let user = self.user else { return }
+                
+                let post = Post(user: user, postDictionary)
+                posts.insert(post, at: 0)
             })
             self.posts = posts
             self.collectionView.reloadData()

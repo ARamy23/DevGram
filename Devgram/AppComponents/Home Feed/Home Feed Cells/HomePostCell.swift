@@ -122,7 +122,7 @@ class HomePostCell: UICollectionViewCell {
         let attributedText = NSMutableAttributedString(string: "\(post?.user?.username ?? "Me")", attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16)])
         attributedText.append(NSAttributedString(string: ": \(post?.caption ?? "Failed to get Caption" )", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14)]))
         attributedText.append(NSAttributedString(string: "\n\n", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 4)]))
-        attributedText.append(NSAttributedString(string: "\(post?.creationDate?.dateTime?.string() ?? "Some time ago")", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray]))
+        attributedText.append(NSAttributedString(string: "Some time ago", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray]))
         captionLabel.attributedText = attributedText
     }
     

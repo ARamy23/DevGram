@@ -274,6 +274,7 @@ class RegisterVC: UIViewController {
                 let uid = user?.uid ?? "NO UID!"
                 let values = [uid: userValues]
                 self?.registerCurrentUser(with: values)
+                Auth.auth().signIn(withEmail: email, password: password, completion: nil)
             })
             
         }

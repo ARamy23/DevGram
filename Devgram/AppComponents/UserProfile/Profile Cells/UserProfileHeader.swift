@@ -276,9 +276,10 @@ class UserProfileHeader: UICollectionViewCell
     
     fileprivate func follow()
     {
-        guard let uid = user?.uid else { return }
+        guard let currentLoggedInUid = FirebaseService.currentUserUID else { return }
+        guard let anotherUserId = user?.uid else { return }
         SVProgressHUD.show()
-        FirebaseService.databaseFollowingsRef.child(uid).updateChildValues([uid: 1]) { (err, _) in
+        FirebaseService.databaseFollowingsRef.child(currentLoggedInUid).updateChildValues([anotherUserId: 1]) { (err, _) in
             if err != nil
             {
                 print(err!)
@@ -300,7 +301,7 @@ class UserProfileHeader: UICollectionViewCell
         guard let uid = user?.uid else { return }
         FirebaseService.databaseFollowingsRef.child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
             SVProgressHUD.dismiss()
-            guard let followingDictionary = snapshot.value as? [String: Any] else { return }
+            guard let followingDictionary = snapshot.value as? [String: Any] else { onCompletion(false); return; }
             if let value = followingDictionary.values.first as? Int { onCompletion(value == 1) }
             else { onCompletion(false) }
         }) { (err) in

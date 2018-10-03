@@ -19,14 +19,13 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupCollectionView()
         setupNavItems()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchPosts()
+        refreshPosts()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -35,6 +34,13 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     }
     
     //MARK:- Setup Methods
+    
+    fileprivate func setupRefreshControl()
+    {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshPosts), for: .valueChanged)
+        collectionView.refreshControl = refreshControl
+    }
     
     fileprivate func setupCollectionView()
     {
@@ -51,7 +57,15 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     //MARK:- Logic
     
-    private func estimateFrameFor(text: String) -> CGRect
+    fileprivate func orderPosts()
+    {
+        posts.sort { (p1, p2) -> Bool in
+            guard let date1 = p1.creationDate, let date2 = p2.creationDate else { return false }
+            return date1 > date2
+        }
+    }
+    
+    fileprivate func estimateFrameFor(text: String) -> CGRect
     {
         let size = CGSize(width: view.width, height: 1000)
         return NSString(string: text).boundingRect(with: size,
@@ -62,28 +76,63 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     //MARK:- Networking
     
+    @objc fileprivate func refreshPosts()
+    {
+        posts.removeAll()
+        fetchCurrentUsersPosts()
+        getFollowedUsersPosts()
+    }
+    
     fileprivate func getPostsOf(_ user: (User?)) {
-        FirebaseService.databaseCurrentUserPostsRef.observe(.value, with: { (snapshot) in
-            guard let postsDictionary = snapshot.value as? [String: Any] else { return }
-            var posts = [Post]()
+        guard let uid = user?.uid else { return }
+        FirebaseService.databasePostsRef.child(uid).observe(.value, with: { (snapshot) in
+            guard let postsDictionary = snapshot.value as? [String: Any] else {
+                return
+                
+            }
             postsDictionary.forEach({ (_, value) in
-                guard let postDictionary = value as? [String: Any] else { return }
+                guard let postDictionary = value as? [String: Any] else {
+                    return
+                }
                 
                 let post = Post(user: user, postDictionary)
-                posts.insert(post, at: 0)
+                self.posts.insert(post, at: 0)
             })
-            self.posts = posts
+            self.orderPosts()
             self.collectionView.reloadData()
+            self.collectionView.refreshControl?.endRefreshing()
         }) { (err) in
             print(err)
             SVProgressHUD.showError(withStatus: err.localizedDescription)
         }
     }
     
-    fileprivate func fetchPosts()
+    fileprivate func fetchCurrentUsersPosts()
     {
         FirebaseService.getCurrentUser { (currentUser) in
             self.getPostsOf(currentUser)
+        }
+    }
+    
+    fileprivate func getFollowedUsersPosts()
+    {
+        // get followings list
+        guard let uid = FirebaseService.currentUserUID else { return }
+        FirebaseService.databaseFollowingsRef.child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let uidsDictionary = snapshot.value as? [String: Any] else { return }
+            uidsDictionary.forEach({ (key, value) in
+                //get users then get their posts
+                guard let isFollowingInt = value as? Int else { return }
+                if isFollowingInt == 1
+                {
+                    FirebaseService.getUser(with: key) { (user) in
+                        self.getPostsOf(user)
+                    }
+                }
+            })
+        }) { (err) in
+            print(err)
+            SVProgressHUD.showError(withStatus: err.localizedDescription)
         }
     }
     

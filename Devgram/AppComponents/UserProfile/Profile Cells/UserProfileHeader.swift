@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class UserProfileHeader: UICollectionViewCell
 {
+    //MARK:- Instance Vars
     
     var user: User?
     {
@@ -20,8 +22,28 @@ class UserProfileHeader: UICollectionViewCell
                 profileImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "user-placeholder"), options: [.transition(.fade(0.5))], progressBlock: nil, completionHandler: nil)
             }
             usernameLabel.text = user?.username
+            if user?.uid == FirebaseService.currentUserUID { userType = .currentUser }
+            else { userType = .anotherUser }
         }
     }
+    
+    //MARK:- Helpers
+    
+    enum UserType
+    {
+        case currentUser
+        case anotherUser
+    }
+    
+    var userType: UserType?
+    {
+        didSet
+        {
+            setUI(accordingTo: userType)
+        }
+    }
+    
+    var isFollowed: Bool = false
     
     var postsCount = 0
     
@@ -100,7 +122,7 @@ class UserProfileHeader: UICollectionViewCell
         return label
     }()
     
-    let editProfileButton: UIButton =
+    lazy var editProfileButton: UIButton =
     {
         let btn = UIButton(type: .system)
         btn.setTitle("Edit Profile", for: .normal)
@@ -109,6 +131,7 @@ class UserProfileHeader: UICollectionViewCell
         btn.layer.borderColor = UIColor.lightGray.cgColor
         btn.layer.borderWidth = 1
         btn.layer.cornerRadius = 4
+        btn.addTarget(self, action: #selector(handleProfileAction), for: .touchUpInside)
         return btn
     }()
     
@@ -204,4 +227,135 @@ class UserProfileHeader: UICollectionViewCell
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK:- Logic
+    
+    fileprivate func editProfile()
+    {
+        
+    }
+    
+    fileprivate func configureFollowStatus()
+    {
+        if isFollowed
+        {
+            
+            editProfileButton.setTitle("Unfollow", for: .normal)
+            editProfileButton.backgroundColor = .appForthColor
+            editProfileButton.setTitleColor(.black, for: .normal)
+            editProfileButton.layer.borderColor = UIColor.lightGray.cgColor
+        }
+        else
+        {
+            editProfileButton.setTitle("Follow", for: .normal)
+            editProfileButton.backgroundColor = .appPrimaryColor
+            editProfileButton.setTitleColor(.white, for: .normal)
+            editProfileButton.layer.borderColor = UIColor.clear.cgColor
+        }
+    }
+    
+    fileprivate func unfollow()
+    {
+        guard let uid = user?.uid else { return }
+        SVProgressHUD.show()
+        FirebaseService.databaseFollowingsRef.child(uid).updateChildValues([uid: 0]) { (err, _) in
+            if err != nil
+            {
+                print(err!)
+                SVProgressHUD.showError(withStatus: err!.localizedDescription)
+            }
+            
+            SVProgressHUD.dismiss()
+            DispatchQueue.main.async
+            {
+                self.isFollowed = false
+                self.configureFollowStatus()
+            }
+        }
+    }
+    
+    fileprivate func follow()
+    {
+        guard let uid = user?.uid else { return }
+        SVProgressHUD.show()
+        FirebaseService.databaseFollowingsRef.child(uid).updateChildValues([uid: 1]) { (err, _) in
+            if err != nil
+            {
+                print(err!)
+                SVProgressHUD.showError(withStatus: err!.localizedDescription)
+            }
+            
+            SVProgressHUD.dismiss()
+            DispatchQueue.main.async
+            {
+                self.isFollowed = true
+                self.configureFollowStatus()
+            }
+        }
+    }
+    
+    fileprivate func checkIfFollowing(_ onCompletion: @escaping (Bool) -> ())
+    {
+        SVProgressHUD.show()
+        guard let uid = user?.uid else { return }
+        FirebaseService.databaseFollowingsRef.child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            SVProgressHUD.dismiss()
+            guard let followingDictionary = snapshot.value as? [String: Any] else { return }
+            if let value = followingDictionary.values.first as? Int { onCompletion(value == 1) }
+            else { onCompletion(false) }
+        }) { (err) in
+            print(err)
+            SVProgressHUD.showError(withStatus: err.localizedDescription)
+            onCompletion(false)
+        }
+    }
+    
+    fileprivate func handleFollowingUser()
+    {
+        checkIfFollowing { (isFollowing) in
+            self.isFollowed = isFollowing
+            if isFollowing { self.unfollow() }
+            else { self.follow() }
+        }
+    }
+    
+    @objc fileprivate func handleProfileAction()
+    {
+        switch userType
+        {
+        case .currentUser?:
+            editProfile()
+        case .anotherUser?:
+            handleFollowingUser()
+        case .none:
+            break
+        }
+    }
+    
+    fileprivate func setUI(accordingTo userType: UserType?)
+    {
+        configureEditButton(accordingTo: userType)
+    }
+    
+    fileprivate func configureEditButton(accordingTo userType: UserType?)
+    {
+        switch userType
+        {
+        case .currentUser?:
+            editProfileButton.setTitle("Edit Profile", for: .normal)
+            editProfileButton.backgroundColor = .appForthColor
+            editProfileButton.setTitleColor(.black, for: .normal)
+            editProfileButton.layer.borderColor = UIColor.lightGray.cgColor
+            
+        case .anotherUser?:
+            configureFollowStatus()
+            checkIfFollowing { (isFollowing) in
+                self.isFollowed = isFollowing
+                self.configureFollowStatus()
+            }
+        case .none:
+            break
+        }
+    }
+    
 }

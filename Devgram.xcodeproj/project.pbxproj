@@ -18,6 +18,7 @@
 		E207FB142160F17300B0E426 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E207FB132160F17300B0E426 /* ProfileVC.swift */; };
 		E207FB162161112D00B0E426 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E207FB152161112D00B0E426 /* User.swift */; };
 		E207FB182161171800B0E426 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E207FB172161171800B0E426 /* UserProfileHeader.swift */; };
+		E27E7E6C21641379006FFAEE /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E7E6B21641379006FFAEE /* SearchResultCell.swift */; };
 		E28F2298215FB182008E739D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E28F2297215FB182008E739D /* GoogleService-Info.plist */; };
 		E28F229B215FC870008E739D /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F229A215FC870008E739D /* Firebase.swift */; };
 		E2A0BF69215EA92B002E0CF4 /* UIColor + AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A0BF68215EA92B002E0CF4 /* UIColor + AppColors.swift */; };
@@ -27,6 +28,7 @@
 		E2A17FAF2163CC5A008AFEB3 /* ProfilePostImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A17FAE2163CC5A008AFEB3 /* ProfilePostImageCell.swift */; };
 		E2A17FB22163DB24008AFEB3 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A17FB12163DB24008AFEB3 /* HomeVC.swift */; };
 		E2A17FB52163DCB6008AFEB3 /* HomePostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A17FB42163DCB6008AFEB3 /* HomePostCell.swift */; };
+		E2A17FB821640D03008AFEB3 /* UserSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A17FB721640D03008AFEB3 /* UserSearchVC.swift */; };
 		E2BB336D21624CAD00DB5D72 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BB336C21624CAD00DB5D72 /* UIApplication.swift */; };
 		E2BB337021625D0C00DB5D72 /* PhotoSelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BB336F21625D0C00DB5D72 /* PhotoSelectorVC.swift */; };
 		E2BB33732162668D00DB5D72 /* PhotoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BB33722162668C00DB5D72 /* PhotoCollectionCell.swift */; };
@@ -47,6 +49,7 @@
 		E207FB132160F17300B0E426 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		E207FB152161112D00B0E426 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E207FB172161171800B0E426 /* UserProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
+		E27E7E6B21641379006FFAEE /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		E28F2297215FB182008E739D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E28F229A215FC870008E739D /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		E2A0BF68215EA92B002E0CF4 /* UIColor + AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + AppColors.swift"; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 		E2A17FAE2163CC5A008AFEB3 /* ProfilePostImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePostImageCell.swift; sourceTree = "<group>"; };
 		E2A17FB12163DB24008AFEB3 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		E2A17FB42163DCB6008AFEB3 /* HomePostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostCell.swift; sourceTree = "<group>"; };
+		E2A17FB721640D03008AFEB3 /* UserSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchVC.swift; sourceTree = "<group>"; };
 		E2BB336C21624CAD00DB5D72 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		E2BB336F21625D0C00DB5D72 /* PhotoSelectorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorVC.swift; sourceTree = "<group>"; };
 		E2BB33722162668C00DB5D72 /* PhotoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionCell.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 				E207FB122160F0D800B0E426 /* UserProfile */,
 				E2BB336E21625CDF00DB5D72 /* Photo Selector */,
 				E2A17FB02163DAFD008AFEB3 /* Home Feed */,
+				E2A17FB621640CD3008AFEB3 /* Search */,
 			);
 			path = AppComponents;
 			sourceTree = "<group>";
@@ -199,6 +204,15 @@
 			path = "Home Feed Cells";
 			sourceTree = "<group>";
 		};
+		E2A17FB621640CD3008AFEB3 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				E2A17FB721640D03008AFEB3 /* UserSearchVC.swift */,
+				E2CA8B5A2164133100B6399F /* Search Result Cells */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		E2BB336E21625CDF00DB5D72 /* Photo Selector */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +230,14 @@
 				E2A17FA62163A631008AFEB3 /* PhotoSelectorHeader.swift */,
 			);
 			path = "Photo Selector Cells";
+			sourceTree = "<group>";
+		};
+		E2CA8B5A2164133100B6399F /* Search Result Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E27E7E6B21641379006FFAEE /* SearchResultCell.swift */,
+			);
+			path = "Search Result Cells";
 			sourceTree = "<group>";
 		};
 		FADD7424D2A5E211BAAC11D5 /* Pods */ = {
@@ -368,10 +390,12 @@
 				E2A17FAC2163C885008AFEB3 /* Post.swift in Sources */,
 				E2A17FAA2163AED8008AFEB3 /* SharePhotoVC.swift in Sources */,
 				E2A17FA72163A631008AFEB3 /* PhotoSelectorHeader.swift in Sources */,
+				E27E7E6C21641379006FFAEE /* SearchResultCell.swift in Sources */,
 				E2BB336D21624CAD00DB5D72 /* UIApplication.swift in Sources */,
 				E207FB162161112D00B0E426 /* User.swift in Sources */,
 				E2BB337021625D0C00DB5D72 /* PhotoSelectorVC.swift in Sources */,
 				E2A17FAF2163CC5A008AFEB3 /* ProfilePostImageCell.swift in Sources */,
+				E2A17FB821640D03008AFEB3 /* UserSearchVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

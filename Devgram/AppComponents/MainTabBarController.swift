@@ -37,7 +37,7 @@ class MainTabBarController: UITabBarController {
     {
         viewControllers = [
             generateNavCon(viewController: HomeVC(collectionViewLayout: UICollectionViewFlowLayout()), name: "Home", image: #imageLiteral(resourceName: "home_unselected"), selectedImage: #imageLiteral(resourceName: "home_selected")),
-            generateNavCon(viewController: UIViewController(), name: "Serach", image: #imageLiteral(resourceName: "search_unselected"), selectedImage: #imageLiteral(resourceName: "search_selected")),
+            generateNavCon(viewController: UserSearchVC(collectionViewLayout: UICollectionViewFlowLayout()), name: "Serach", image: #imageLiteral(resourceName: "search_unselected"), selectedImage: #imageLiteral(resourceName: "search_selected")),
             generateNavCon(viewController: UIViewController(), name: "Plus", image: #imageLiteral(resourceName: "plus_unselected"), selectedImage: #imageLiteral(resourceName: "plus_unselected")),
             generateNavCon(viewController: UIViewController(), name: "Like", image: #imageLiteral(resourceName: "like_unselected"), selectedImage: #imageLiteral(resourceName: "like_selected")),
             generateNavCon(viewController: ProfileVC(collectionViewLayout: UICollectionViewFlowLayout()), name: "My Profile", image: #imageLiteral(resourceName: "profile_unselected"), selectedImage: #imageLiteral(resourceName: "profile_selected"))

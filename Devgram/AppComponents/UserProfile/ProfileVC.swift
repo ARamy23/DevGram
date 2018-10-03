@@ -22,6 +22,7 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
         didSet
         {
             self.navigationItem.title = user?.username
+            self.fetchPosts()
             self.collectionView.reloadData()
         }
     }
@@ -36,8 +37,12 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        FirebaseService.getCurrentUser { self.user = $0 }
-        fetchPosts()
+        if user == nil { FirebaseService.getCurrentUser { self.user = $0 } }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        SVProgressHUD.dismiss()
     }
     
     //MARK:- Setup Methods
@@ -54,7 +59,7 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
     }
     
     fileprivate func setupNavBar() {
-        navigationItem.title = "My Profile"
+        navigationItem.title = user?.username ?? "My Profile"
         setupGearButton()
     }
     
@@ -68,7 +73,7 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
     
     fileprivate func fetchPosts()
     {
-        guard let uid = FirebaseService.currentUserUID else { return }
+        guard let uid = user?.uid else { return }
         FirebaseService.databasePostsRef.child(uid).observe(.value, with: { (snapshot) in
             guard let postsDictionary = snapshot.value as? [String: Any] else { return }
             var posts = [Post]()
@@ -115,7 +120,7 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withClass: UserProfileHeader.self, for: indexPath)
-        header.user = FirebaseService.currentUser
+        header.user = user
         header.postsCount = posts.count
         return header
     }

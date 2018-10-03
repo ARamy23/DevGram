@@ -29,6 +29,11 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         fetchPosts()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        SVProgressHUD.dismiss()
+    }
+    
     //MARK:- Setup Methods
     
     fileprivate func setupCollectionView()

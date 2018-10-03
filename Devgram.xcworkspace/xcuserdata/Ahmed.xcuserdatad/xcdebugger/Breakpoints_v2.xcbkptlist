@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/AppComponents/UserProfile/ProfileVC.swift"
-            timestampString = "560285621.265411"
+            timestampString = "560288326.811095"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
@@ -266,7 +266,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/AppComponents/UserProfile/Profile Cells/UserProfileHeader.swift"
-            timestampString = "560285621.265756"
+            timestampString = "560288326.811332"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "324"
@@ -282,7 +282,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/AppComponents/UserProfile/Profile Cells/UserProfileHeader.swift"
-            timestampString = "560285621.265866"
+            timestampString = "560288326.811398"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "317"
@@ -298,7 +298,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/AppComponents/UserProfile/Profile Cells/UserProfileHeader.swift"
-            timestampString = "560285621.26594"
+            timestampString = "560288326.811448"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "240"
@@ -314,7 +314,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/AppComponents/UserProfile/Profile Cells/UserProfileHeader.swift"
-            timestampString = "560285621.266012"
+            timestampString = "560288326.811512"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "305"
@@ -330,7 +330,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/AppComponents/UserProfile/Profile Cells/UserProfileHeader.swift"
-            timestampString = "560285621.266083"
+            timestampString = "560288326.8115571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "355"
@@ -346,11 +346,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/AppComponents/Home Feed/HomeVC.swift"
-            timestampString = "560285621.266709"
+            timestampString = "560288326.811673"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "getFollowedUsersPosts()"
             landmarkType = "7">
          </BreakpointContent>
@@ -362,28 +362,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/AppComponents/Home Feed/HomeVC.swift"
-            timestampString = "560285621.2671061"
+            timestampString = "560288326.812103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "getFollowedUsersPosts()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Devgram/AppComponents/Home Feed/HomeVC.swift"
-            timestampString = "560285621.267478"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "orderPosts()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -394,12 +378,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/Shared/Post.swift"
-            timestampString = "560285621.267841"
+            timestampString = "560288326.812385"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
             endingLineNumber = "25"
             landmarkName = "init(user:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Devgram/AppComponents/Home Feed/HomeVC.swift"
+            timestampString = "560288332.7783771"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "handleFeedUpdating()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

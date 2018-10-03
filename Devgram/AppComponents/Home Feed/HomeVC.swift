@@ -21,6 +21,7 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         super.viewDidLoad()
         setupCollectionView()
         setupNavItems()
+        setupObservers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +35,11 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     }
     
     //MARK:- Setup Methods
+    
+    fileprivate func setupObservers()
+    {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleFeedUpdating), name: .updateFeed, object: nil)
+    }
     
     fileprivate func setupRefreshControl()
     {
@@ -56,6 +62,11 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     }
     
     //MARK:- Logic
+    
+    @objc fileprivate func handleFeedUpdating()
+    {
+        refreshPosts()
+    }
     
     fileprivate func orderPosts()
     {

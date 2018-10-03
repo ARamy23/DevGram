@@ -32,6 +32,7 @@
 		E2BB336D21624CAD00DB5D72 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BB336C21624CAD00DB5D72 /* UIApplication.swift */; };
 		E2BB337021625D0C00DB5D72 /* PhotoSelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BB336F21625D0C00DB5D72 /* PhotoSelectorVC.swift */; };
 		E2BB33732162668D00DB5D72 /* PhotoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BB33722162668C00DB5D72 /* PhotoCollectionCell.swift */; };
+		E2F5A6E12165517400C2DBA2 /* Notification.Name + Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5A6E02165517400C2DBA2 /* Notification.Name + Keys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		E2BB336C21624CAD00DB5D72 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		E2BB336F21625D0C00DB5D72 /* PhotoSelectorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorVC.swift; sourceTree = "<group>"; };
 		E2BB33722162668C00DB5D72 /* PhotoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionCell.swift; sourceTree = "<group>"; };
+		E2F5A6E02165517400C2DBA2 /* Notification.Name + Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name + Keys.swift"; sourceTree = "<group>"; };
 		F4938845B0C1E57F20FAF71B /* Pods-Devgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Devgram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Devgram/Pods-Devgram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +176,7 @@
 			children = (
 				E2BB336C21624CAD00DB5D72 /* UIApplication.swift */,
 				E2A0BF68215EA92B002E0CF4 /* UIColor + AppColors.swift */,
+				E2F5A6E02165517400C2DBA2 /* Notification.Name + Keys.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				E2A17FA72163A631008AFEB3 /* PhotoSelectorHeader.swift in Sources */,
 				E27E7E6C21641379006FFAEE /* SearchResultCell.swift in Sources */,
 				E2BB336D21624CAD00DB5D72 /* UIApplication.swift in Sources */,
+				E2F5A6E12165517400C2DBA2 /* Notification.Name + Keys.swift in Sources */,
 				E207FB162161112D00B0E426 /* User.swift in Sources */,
 				E2BB337021625D0C00DB5D72 /* PhotoSelectorVC.swift in Sources */,
 				E2A17FAF2163CC5A008AFEB3 /* ProfilePostImageCell.swift in Sources */,

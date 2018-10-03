@@ -129,6 +129,8 @@ class SharePhotoVC: UIViewController {
             }
             
             self.dismiss(animated: true, completion: nil)
+            
+            NotificationCenter.default.post(name: .updateFeed, object: nil)
         }
     }
     

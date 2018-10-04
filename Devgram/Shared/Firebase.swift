@@ -24,6 +24,7 @@ final class FirebaseService
     
     static func getCurrentUser(_ onCompletion: @escaping (User?) -> ())
     {
+        print("fetching current user")
         guard let uid = FirebaseService.currentUserUID else { return }
         FirebaseService.databaseUsersRef.child(uid).observeSingleEvent(of: .value) { (snapshot) in
             print(snapshot.value)

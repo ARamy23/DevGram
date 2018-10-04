@@ -150,9 +150,11 @@ class LoginVC: UIViewController {
             {
                 print(err!)
                 SVProgressHUD.showError(withStatus: err!.localizedDescription)
+                return
             }
             
             UIApplication.mainTabBarController()?.setupUI()
+            print(FirebaseService.currentUserUID ?? "NO UID!")
             self.dismiss(animated: true, completion: nil)
         }
     }

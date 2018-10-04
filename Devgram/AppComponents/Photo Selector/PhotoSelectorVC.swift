@@ -94,7 +94,7 @@ class PhotoSelectorVC: UICollectionViewController, UICollectionViewDelegateFlowL
     {
         let sharePhotoVC = SharePhotoVC()
         sharePhotoVC.imageView.image = header?.photoImageView.image
-        navigationController?.pushViewController(sharePhotoVC )
+        navigationController?.pushViewController(sharePhotoVC)
     }
     
     @objc fileprivate func handleCancel()

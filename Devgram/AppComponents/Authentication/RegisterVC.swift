@@ -311,6 +311,7 @@ class RegisterVC: UIViewController {
             }
             
             SVProgressHUD.showSuccess(withStatus: "Successfully Registered!")
+
             
             UIApplication.mainTabBarController()?.setupUI()
             self.dismiss(animated: true, completion: nil)

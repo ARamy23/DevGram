@@ -53,6 +53,7 @@ class UserProfileHeader: UICollectionViewCell
     {
         let iv = UIImageView()
         iv.layer.cornerRadius = 40
+        iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.image = #imageLiteral(resourceName: "user-placeholder")
         return iv

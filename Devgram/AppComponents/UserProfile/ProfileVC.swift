@@ -37,7 +37,17 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if user == nil { FirebaseService.getCurrentUser { self.user = $0 } }
+        if user == nil {
+            print(FirebaseService.currentUserUID ?? "No Logged In User")
+            if FirebaseService.currentUser != nil
+            {
+                self.user = FirebaseService.currentUser
+            }
+            else
+            {
+                FirebaseService.getCurrentUser { self.user = $0 }
+            }
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

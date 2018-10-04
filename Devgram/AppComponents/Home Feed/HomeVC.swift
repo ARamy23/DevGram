@@ -59,9 +59,15 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "logo_black"))
         imageView.contentMode = .scaleAspectFit
         navigationItem.titleView = imageView
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "camera3"), landscapeImagePhone: #imageLiteral(resourceName: "camera3"), style: .plain, target: self, action: #selector(handleTakingPhoto))
     }
     
     //MARK:- Logic
+    
+    @objc fileprivate func handleTakingPhoto()
+    {
+        present(CameraVC(), animated: true, completion: nil)
+    }
     
     @objc fileprivate func handleFeedUpdating()
     {

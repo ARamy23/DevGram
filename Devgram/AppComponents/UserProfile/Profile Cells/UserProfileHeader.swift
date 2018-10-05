@@ -9,6 +9,11 @@
 import UIKit
 import SVProgressHUD
 
+protocol ViewTypeDelegate: class
+{
+    func didChangeViewType(to viewType: UserProfileHeader.ViewType)
+}
+
 class UserProfileHeader: UICollectionViewCell
 {
     //MARK:- Instance Vars
@@ -17,15 +22,18 @@ class UserProfileHeader: UICollectionViewCell
     {
         didSet
         {
-            if let imageURL = user?.profileImageURL
+            guard let user = user else { return }
+            if let imageURL = user.profileImageURL
             {
                 profileImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "user-placeholder"), options: [.transition(.fade(0.5))], progressBlock: nil, completionHandler: nil)
             }
-            usernameLabel.text = user?.username
-            if user?.uid == FirebaseService.currentUserUID { userType = .currentUser }
-            else { userType = .anotherUser }
+            usernameLabel.text = user.username
+            if user.uid == FirebaseService.currentUserUID { userType = .currentUser }
+            else if user.uid != FirebaseService.currentUserUID { userType = .anotherUser }
         }
     }
+    
+    weak var delegate: ViewTypeDelegate?
     
     //MARK:- Helpers
     
@@ -40,6 +48,21 @@ class UserProfileHeader: UICollectionViewCell
         didSet
         {
             setUI(accordingTo: userType)
+        }
+    }
+    
+    enum ViewType
+    {
+        case gridView
+        case listView
+    }
+    
+    var viewType: ViewType = .gridView
+    {
+        didSet
+        {
+            setView(accordingTo: viewType)
+            delegate?.didChangeViewType(to: viewType)
         }
     }
     
@@ -59,27 +82,29 @@ class UserProfileHeader: UICollectionViewCell
         return iv
     }()
     
-    let gridButton: UIButton =
+    lazy var gridButton: UIButton =
     {
         let btn = UIButton(type: .system)
         btn.setImage(#imageLiteral(resourceName: "grid"), for: .normal)
         btn.tintColor = .appPrimaryColor
+        btn.addTarget(self, action: #selector(handleChangeToGridView), for: .touchUpInside)
         return btn
     }()
     
-    let listButton: UIButton =
+    lazy var listButton: UIButton =
     {
         let btn = UIButton(type: .system)
         btn.setImage(#imageLiteral(resourceName: "list"), for: .normal)
-        btn.tintColor = UIColor(white: 0, alpha: 0.2)
+        btn.tintColor = .switchedOffButtonColor
+        btn.addTarget(self, action: #selector(handleChangeToListView), for: .touchUpInside)
         return btn
     }()
     
-    let bookmarkButton: UIButton =
+    lazy var bookmarkButton: UIButton =
     {
         let btn = UIButton(type: .system)
         btn.setImage(#imageLiteral(resourceName: "ribbon"), for: .normal)
-        btn.tintColor = UIColor(white: 0, alpha: 0.2)
+        btn.tintColor = .switchedOffButtonColor
         return btn
     }()
     
@@ -231,9 +256,43 @@ class UserProfileHeader: UICollectionViewCell
     
     //MARK:- Logic
     
+    fileprivate func configureViewButtons(accordingTo viewType: ViewType)
+    {
+        UIView.animate(withDuration: 0.4)
+        {
+            [weak self] in
+            switch viewType
+            {
+            case .gridView:
+                self?.gridButton.tintColor = .appPrimaryColor
+                self?.listButton.tintColor = .switchedOffButtonColor
+                self?.bookmarkButton.tintColor = .switchedOffButtonColor
+            case .listView:
+                self?.gridButton.tintColor = .switchedOffButtonColor
+                self?.listButton.tintColor = .appPrimaryColor
+                self?.bookmarkButton.tintColor = .switchedOffButtonColor
+            }
+        }
+    }
+    
+    fileprivate func setView(accordingTo viewType: ViewType)
+    {
+        configureViewButtons(accordingTo: viewType)
+    }
+    
+    @objc fileprivate func handleChangeToGridView()
+    {
+        self.viewType = .gridView
+    }
+    
+    @objc fileprivate func handleChangeToListView()
+    {
+        self.viewType = .listView
+    }
+    
     fileprivate func editProfile()
     {
-        
+        //TODO:
     }
     
     fileprivate func configureFollowStatus()

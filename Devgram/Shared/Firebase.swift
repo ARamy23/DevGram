@@ -45,7 +45,6 @@ final class FirebaseService
             if let userDictionary = snapshot.value as? [String: Any]
             {
                 let fetchedUser = User(uid: uid, userDictionary)
-                FirebaseService.currentUser = fetchedUser
                 onCompletion(fetchedUser)
             }
         }) { (err) in

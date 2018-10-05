@@ -187,23 +187,27 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let post = posts[indexPath.item]
         
-        let profileImageHeight: CGFloat = 40.0
-        let usernameLabelHeight: CGFloat = 8.0
-        let optionsButtonHeight: CGFloat = 8.0
-        let actionButtonsHeight: CGFloat = 50.0
-        let photoImageViewHeight: CGFloat = view.width
-        let captionHeight: CGFloat = estimateFrameFor(text: post.caption ?? "").height + 32.0
+        if let post = posts.item(at: indexPath.item)
+        {
+            let profileImageHeight: CGFloat = 40.0
+            let usernameLabelHeight: CGFloat = 8.0
+            let optionsButtonHeight: CGFloat = 8.0
+            let actionButtonsHeight: CGFloat = 50.0
+            let photoImageViewHeight: CGFloat = view.width
+            let captionHeight: CGFloat = estimateFrameFor(text: post.caption ?? "").height + 32.0
+            
+            var height = profileImageHeight
+            height += usernameLabelHeight
+            height += optionsButtonHeight
+            height += photoImageViewHeight
+            height += actionButtonsHeight
+            height += captionHeight
+            
+            return CGSize(width: view.width, height: height)
+        }
         
-        var height = profileImageHeight
-        height += usernameLabelHeight
-        height += optionsButtonHeight
-        height += photoImageViewHeight
-        height += actionButtonsHeight
-        height += captionHeight
-        
-        return CGSize(width: view.width, height: height)
+        return CGSize.zero
     }
 }
 

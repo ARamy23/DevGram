@@ -22,10 +22,11 @@ class HomePostCell: UICollectionViewCell {
     {
         didSet
         {
-            likeButton.setImage(post?.hasLiked ? #imageLiteral(resourceName: "like_selected").original : #imageLiteral(resourceName: "like_unselected").original, for: .normal)
-            photoImageView.kf.setImage(with: post?.postImageURL?.url, placeholder: #imageLiteral(resourceName: "placeholder image"), options: [.transition(.fade(0.5))], progressBlock: nil, completionHandler: nil)
-            usernameLabel.text = post?.user?.username
-            userProfileImageView.kf.setImage(with: post?.user?.profileImageURL, placeholder: #imageLiteral(resourceName: "user-placeholder"), options: [.transition(.fade(0.5))], progressBlock: nil, completionHandler: nil)
+            guard let post = post else { return }
+            likeButton.setImage(post.hasLiked ? #imageLiteral(resourceName: "like_selected").original : #imageLiteral(resourceName: "like_unselected").original, for: .normal)
+            photoImageView.kf.setImage(with: post.postImageURL?.url, placeholder: #imageLiteral(resourceName: "placeholder image"), options: [.transition(.fade(0.5))], progressBlock: nil, completionHandler: nil)
+            usernameLabel.text = post.user?.username
+            userProfileImageView.kf.setImage(with: post.user?.profileImageURL, placeholder: #imageLiteral(resourceName: "user-placeholder"), options: [.transition(.fade(0.5))], progressBlock: nil, completionHandler: nil)
             setupCaptionText()
         }
     }

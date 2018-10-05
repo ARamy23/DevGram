@@ -10,12 +10,16 @@ import Foundation
 
 struct Post
 {
+    var id: String?
+    
     let postImageURL: String?
     let imageWidth: NSNumber?
     let imageHeight: NSNumber?
     let creationDate: TimeInterval?
     let caption: String?
     let user: User?
+    
+    var hasLiked: Bool = false
     
     init(user: User?, _ dictionary: [String: Any])
     {

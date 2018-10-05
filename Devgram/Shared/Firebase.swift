@@ -16,6 +16,8 @@ final class FirebaseService
     static let databasePostsRef = FirebaseService.databaseURL.child("posts")
     static let databaseCurrentUserPostsRef = FirebaseService.databasePostsRef.child(FirebaseService.currentUserUID ?? "")
     static let databaseFollowingsRef = FirebaseService.databaseURL.child("following")
+    static let databaseCommentsRef = FirebaseService.databaseURL.child("comments")
+    static let databaseLikesRef = FirebaseService.databaseURL.child("likes")
     static let storageRef = Storage.storage().reference()
     static let storageProfileImagesRef = FirebaseService.storageRef.child("profile_images")
     static let storagePostsImagesRef = FirebaseService.storageRef.child("posts_images")

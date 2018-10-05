@@ -234,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/AppComponents/MainTabBarController.swift"
-            timestampString = "560360140.872117"
+            timestampString = "560367520.181408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
@@ -346,13 +346,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/AppComponents/Home Feed/HomeVC.swift"
-            timestampString = "560311135.526219"
+            timestampString = "560446145.672356"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "getFollowedUsersPosts()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -362,13 +362,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/AppComponents/Home Feed/HomeVC.swift"
-            timestampString = "560311135.526298"
+            timestampString = "560446145.672501"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "HomeVC"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -378,11 +378,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/Shared/Post.swift"
-            timestampString = "560288326.812385"
+            timestampString = "560446145.672577"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "init(user:_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -442,12 +442,12 @@
                   moduleName = "Devgram"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/macbook/Desktop/Workstation/iOS/Devgram/Devgram/AppComponents/UserProfile/ProfileVC.swift"
-                  timestampString = "560357781.686321"
+                  timestampString = "560446146.021166"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
                   endingLineNumber = "48"
-                  offsetFromSymbolStart = "1140">
+                  offsetFromSymbolStart = "1478">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -457,12 +457,12 @@
                   moduleName = "Devgram"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/macbook/Desktop/Workstation/iOS/Devgram/Devgram/AppComponents/UserProfile/ProfileVC.swift"
-                  timestampString = "560357781.68808"
+                  timestampString = "560446146.0237041"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
                   endingLineNumber = "48"
-                  offsetFromSymbolStart = "36">
+                  offsetFromSymbolStart = "34">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -554,7 +554,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/AppComponents/Camera/CameraVC.swift"
-            timestampString = "560360140.873005"
+            timestampString = "560367520.1820281"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "161"
@@ -570,7 +570,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Devgram/AppComponents/Camera/CameraVC.swift"
-            timestampString = "560360140.873548"
+            timestampString = "560367520.182096"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "163"

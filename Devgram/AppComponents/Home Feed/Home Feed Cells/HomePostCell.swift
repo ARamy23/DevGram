@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol HomePostDelegate: class 
+{
+    func didTapOnCommentButton(for post: Post)
+    func didTapOnLikeButton(for cell: HomePostCell)
+}
+
 class HomePostCell: UICollectionViewCell {
     
     //MARK:- Datasource
@@ -16,13 +22,17 @@ class HomePostCell: UICollectionViewCell {
     {
         didSet
         {
-            
+            likeButton.setImage(post?.hasLiked ? #imageLiteral(resourceName: "like_selected").original : #imageLiteral(resourceName: "like_unselected").original, for: .normal)
             photoImageView.kf.setImage(with: post?.postImageURL?.url, placeholder: #imageLiteral(resourceName: "placeholder image"), options: [.transition(.fade(0.5))], progressBlock: nil, completionHandler: nil)
             usernameLabel.text = post?.user?.username
             userProfileImageView.kf.setImage(with: post?.user?.profileImageURL, placeholder: #imageLiteral(resourceName: "user-placeholder"), options: [.transition(.fade(0.5))], progressBlock: nil, completionHandler: nil)
             setupCaptionText()
         }
     }
+    
+    //MARK:- Instance Variable
+    
+    weak var delegate: HomePostDelegate?
     
     //MARK:- UI Initialization
     
@@ -68,28 +78,29 @@ class HomePostCell: UICollectionViewCell {
         return stackView
     }()
     
-    let likeButton: UIButton =
+    lazy var likeButton: UIButton =
     {
         let btn = UIButton(type: .system)
         btn.setImage(#imageLiteral(resourceName: "like_unselected").original, for: .normal)
         return btn
     }()
     
-    let commentButton: UIButton =
+    lazy var commentButton: UIButton =
     {
         let btn = UIButton(type: .system)
         btn.setImage(#imageLiteral(resourceName: "comment").original, for: .normal)
+        btn.addTarget(self, action: #selector(handleCommenting), for: .touchUpInside)
         return btn
     }()
     
-    let sendButton: UIButton =
+    lazy var sendButton: UIButton =
     {
         let btn = UIButton(type: .system)
         btn.setImage(#imageLiteral(resourceName: "send2").original, for: .normal)
         return btn
     }()
     
-    let ribbonButton: UIButton =
+    lazy var ribbonButton: UIButton =
     {
         let btn = UIButton(type: .system)
         btn.setImage(#imageLiteral(resourceName: "ribbon").original, for: .normal)
@@ -210,5 +221,23 @@ class HomePostCell: UICollectionViewCell {
             maker.left.right.equalTo(self)
             maker.height.equalTo(self.snp.width)
         }
+    }
+    
+    //MARK:- Logic
+    
+    @objc fileprivate func handleCommenting()
+    {
+        guard let post = post else { return }
+        delegate?.didTapOnCommentButton(for: post)
+    }
+    
+    @objc fileprivate func handleLike()
+    {
+        delegate?.didTapOnLikeButton(for: self)
+    }
+    
+    @objc fileprivate func handleRepost()
+    {
+        
     }
 }

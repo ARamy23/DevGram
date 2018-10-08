@@ -200,7 +200,6 @@ class LoginVC: UIViewController {
         }
         else
         {
-            SVProgressHUD.showError(withStatus: "Email Not Valid!")
             return false
         }
     }
@@ -215,7 +214,6 @@ class LoginVC: UIViewController {
         }
         else
         {
-            SVProgressHUD.showError(withStatus: "Password Not Valid!")
             return false
         }
     }

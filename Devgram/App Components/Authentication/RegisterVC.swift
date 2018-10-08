@@ -220,7 +220,6 @@ class RegisterVC: UIViewController {
         }
         else
         {
-            SVProgressHUD.showError(withStatus: "Email Not Valid!")
             return false
         }
     }
@@ -235,7 +234,6 @@ class RegisterVC: UIViewController {
         }
         else
         {
-            SVProgressHUD.showError(withStatus: "Username Not Valid!")
             return false
         }
     }
@@ -250,7 +248,6 @@ class RegisterVC: UIViewController {
         }
         else
         {
-            SVProgressHUD.showError(withStatus: "Password Not Valid!")
             return false
         }
     }

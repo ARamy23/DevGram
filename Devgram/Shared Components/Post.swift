@@ -15,7 +15,7 @@ struct Post
     let postImageURL: String?
     let imageWidth: NSNumber?
     let imageHeight: NSNumber?
-    let creationDate: TimeInterval?
+    let creationDate: Date?
     let caption: String?
     let user: User?
     
@@ -26,7 +26,7 @@ struct Post
         postImageURL = dictionary["imageURL"] as? String
         imageWidth = dictionary["imageWidth"] as? NSNumber
         imageHeight = dictionary["imageHeight"] as? NSNumber
-        creationDate = dictionary["creationDate"] as? TimeInterval
+        creationDate = Date(timeIntervalSince1970:(dictionary["creationDate"] as? Double ?? 0))
         caption = dictionary["caption"] as? String
         self.user = user
     }

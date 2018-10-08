@@ -38,6 +38,7 @@
 		E2BB33732162668D00DB5D72 /* PhotoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BB33722162668C00DB5D72 /* PhotoCollectionCell.swift */; };
 		E2C860CC2167A82E007659A2 /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C860CB2167A82E007659A2 /* CommentsCell.swift */; };
 		E2C860CE2167AA42007659A2 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C860CD2167AA42007659A2 /* Comment.swift */; };
+		E2C860D02167EBAF007659A2 /* Date + TimeAgoString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C860CF2167EBAF007659A2 /* Date + TimeAgoString.swift */; };
 		E2F5A6E12165517400C2DBA2 /* Notification.Name + Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5A6E02165517400C2DBA2 /* Notification.Name + Keys.swift */; };
 		E2F5A6E421655D2F00C2DBA2 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5A6E321655D2F00C2DBA2 /* CameraVC.swift */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 		E2BB33722162668C00DB5D72 /* PhotoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionCell.swift; sourceTree = "<group>"; };
 		E2C860CB2167A82E007659A2 /* CommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
 		E2C860CD2167AA42007659A2 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		E2C860CF2167EBAF007659A2 /* Date + TimeAgoString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + TimeAgoString.swift"; sourceTree = "<group>"; };
 		E2F5A6E02165517400C2DBA2 /* Notification.Name + Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name + Keys.swift"; sourceTree = "<group>"; };
 		E2F5A6E321655D2F00C2DBA2 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		F4938845B0C1E57F20FAF71B /* Pods-Devgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Devgram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Devgram/Pods-Devgram.release.xcconfig"; sourceTree = "<group>"; };
@@ -123,8 +125,8 @@
 		E2041BAD215D2514003E25C0 /* Devgram */ = {
 			isa = PBXGroup;
 			children = (
-				E207FB112160F00500B0E426 /* AppComponents */,
-				E28F2299215FC858008E739D /* Shared */,
+				E207FB112160F00500B0E426 /* App Components */,
+				E28F2299215FC858008E739D /* Shared Components */,
 				E207FB0E2160EC7200B0E426 /* Supporting Files */,
 				E28F2297215FB182008E739D /* GoogleService-Info.plist */,
 				E2041BBA215D2516003E25C0 /* Info.plist */,
@@ -152,7 +154,7 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
-		E207FB112160F00500B0E426 /* AppComponents */ = {
+		E207FB112160F00500B0E426 /* App Components */ = {
 			isa = PBXGroup;
 			children = (
 				E207FB0C2160EC2C00B0E426 /* MainTabBarController.swift */,
@@ -163,7 +165,7 @@
 				E2A17FB621640CD3008AFEB3 /* Search */,
 				E2F5A6E221655D1600C2DBA2 /* Camera */,
 			);
-			path = AppComponents;
+			path = "App Components";
 			sourceTree = "<group>";
 		};
 		E207FB122160F0D800B0E426 /* UserProfile */ = {
@@ -175,7 +177,7 @@
 			path = UserProfile;
 			sourceTree = "<group>";
 		};
-		E28F2299215FC858008E739D /* Shared */ = {
+		E28F2299215FC858008E739D /* Shared Components */ = {
 			isa = PBXGroup;
 			children = (
 				E2A0BF67215EA919002E0CF4 /* Extensions */,
@@ -184,7 +186,7 @@
 				E2A17FAB2163C885008AFEB3 /* Post.swift */,
 				E2C860CD2167AA42007659A2 /* Comment.swift */,
 			);
-			path = Shared;
+			path = "Shared Components";
 			sourceTree = "<group>";
 		};
 		E2A0BF67215EA919002E0CF4 /* Extensions */ = {
@@ -193,6 +195,7 @@
 				E2BB336C21624CAD00DB5D72 /* UIApplication.swift */,
 				E2A0BF68215EA92B002E0CF4 /* UIColor + AppColors.swift */,
 				E2F5A6E02165517400C2DBA2 /* Notification.Name + Keys.swift */,
+				E2C860CF2167EBAF007659A2 /* Date + TimeAgoString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				E2041BAF215D2514003E25C0 /* AppDelegate.swift in Sources */,
 				E2A17FAC2163C885008AFEB3 /* Post.swift in Sources */,
 				E2A17FAA2163AED8008AFEB3 /* SharePhotoVC.swift in Sources */,
+				E2C860D02167EBAF007659A2 /* Date + TimeAgoString.swift in Sources */,
 				E2A17FA72163A631008AFEB3 /* PhotoSelectorHeader.swift in Sources */,
 				E27C5C2421664876000D636B /* PhotoPreviewContainerView.swift in Sources */,
 				E27E7E6C21641379006FFAEE /* SearchResultCell.swift in Sources */,

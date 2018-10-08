@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseAuth
+import Firebase
 import SVProgressHUD
 
 class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
@@ -22,7 +22,7 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
         didSet
         {
             self.navigationItem.title = user?.username
-            self.fetchPosts()
+            self.paginatePosts()
             self.collectionView.reloadData()
         }
     }
@@ -36,6 +36,8 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
             collectionView.reloadData()
         }
     }
+    
+    var isFinishedPaging = false
     
     //MARK:- View Controller Methods
     
@@ -93,21 +95,27 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
     
     //MARK:- Networking Methods
     
-    fileprivate func fetchPosts()
+    fileprivate func paginatePosts()
     {
         guard let uid = user?.uid else { return }
-        FirebaseService.databasePostsRef.child(uid).observe(.value, with: { (snapshot) in
-            guard let postsDictionary = snapshot.value as? [String: Any] else { return }
-            var posts = [Post]()
-            postsDictionary.forEach({ (_, value) in
-                guard let postDictionary = value as? [String: Any] else { return }
-                
-                guard let user = self.user else { return }
-                
-                let post = Post(user: user, postDictionary)
-                posts.insert(post, at: 0)
+        let ref = FirebaseService.databasePostsRef.child(uid)
+        var query = ref.queryOrdered(byChild: "creationDate")
+        
+        if posts.count > 0 { query = query.queryEnding(atValue: posts.last?.creationDate?.timeIntervalSince1970) }
+        
+        query.queryLimited(toLast: 9).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            guard var allObjects = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            if self.posts.count > 0 && allObjects.count > 0 { allObjects.removeFirst() }
+            
+            if allObjects.count < 9 { self.isFinishedPaging = true }
+            
+            allObjects.forEach({ (snapshot) in
+                guard let postDictionary = snapshot.value as? [String: Any] else { return }
+                let post = Post(user: self.user, postDictionary)
+                self.posts.append(post)
             })
-            self.posts = posts
             self.collectionView.reloadData()
         }) { (err) in
             print(err)
@@ -157,6 +165,10 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.item == posts.count - 1 && !isFinishedPaging
+        {
+            paginatePosts()
+        }
         if isGridView
         {
             let cell = collectionView.dequeueReusableCell(withClass: ProfilePostImageCell.self, for: indexPath)

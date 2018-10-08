@@ -60,6 +60,7 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         imageView.contentMode = .scaleAspectFit
         navigationItem.titleView = imageView
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "camera3"), landscapeImagePhone: #imageLiteral(resourceName: "camera3"), style: .plain, target: self, action: #selector(handleTakingPhoto))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "send2"), style: .plain, target: self, action: nil)
     }
     
     //MARK:- Logic

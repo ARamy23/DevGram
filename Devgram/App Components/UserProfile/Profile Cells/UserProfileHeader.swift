@@ -69,6 +69,14 @@ class UserProfileHeader: UICollectionViewCell
     var isFollowed: Bool = false
     
     var postsCount = 0
+    {
+        didSet
+        {
+            let attributedText = NSMutableAttributedString(string: "\(postsCount)\n", attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)])
+            attributedText.append(NSAttributedString(string: "Posts", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]))
+            postsLabel.attributedText = attributedText
+        }
+    }
     
     //MARK:- UI Initialization
     
